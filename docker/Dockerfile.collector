@@ -8,7 +8,7 @@ WORKDIR /app
 COPY src/go/collector/main.go .
 
 # Build the Go code
-RUN go build -o main .
+RUN go build -o main main.go
 
 # Specify the command to run the compiled binary
 CMD ["./main"]
