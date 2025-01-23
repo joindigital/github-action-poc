@@ -1,0 +1,17 @@
+name: Build Docker Images
+
+on:
+  push:
+    paths:
+      - "src/go/producer/**"
+
+jobs:
+  build-docker-producer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build producer
+        run: |
+          docker build -t producer:1.0 -f docker/Dockerfile.producer .

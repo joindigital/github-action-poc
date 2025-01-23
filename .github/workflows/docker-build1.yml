@@ -1,0 +1,17 @@
+name: Build Docker Images
+
+on:
+  push:
+    paths:
+      - "src/go/collector/**"
+
+jobs:
+  build-docker-collector:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build collector
+        run: |
+          docker build -t collector:1.0 -f docker/Dockerfile.collector .
