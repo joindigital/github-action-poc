@@ -15,3 +15,4 @@ jobs:
       - name: Build collector
         run: |
           docker build -t collector:1.0 -f docker/Dockerfile.collector .
+          docker run --rm collector:1.0
