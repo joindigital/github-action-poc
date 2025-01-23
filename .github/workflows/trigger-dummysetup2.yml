@@ -14,5 +14,5 @@ jobs:
           curl -X POST \
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: token $REPO1_PAT" \
-            https://api.github.com/repos/joindigital/repo1/dispatches \
+            https://api.github.com/repos/joindigital/github-action-poc2/dispatches \
             -d '{"event_type": "trigger-event", "client_payload": {"custom": "data"}}'
