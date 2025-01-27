@@ -29,4 +29,4 @@ jobs:
       - name: Upload File to S3
         run: |
           echo "This is a sample file" > your-text-file.txt  # Create a sample text file
-          aws s3 cp /src/test.txt s3://github-action-poc/
+          aws s3 cp src/test.txt s3://github-action-poc/
