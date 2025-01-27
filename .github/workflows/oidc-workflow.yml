@@ -1,0 +1,32 @@
+name: Upload to S3 using OIDC
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  id-token: write  # Required to use OIDC
+  contents: read
+
+jobs:
+  upload-to-s3:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Step 2: Configure AWS credentials using OIDC
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_OIDC_ROLE_ARN }}
+          aws-region: ap-south-1
+
+      # Step 3: Upload the file to S3
+      - name: Upload File to S3
+        run: |
+          echo "This is a sample file" > your-text-file.txt  # Create a sample text file
+          aws s3 cp /src/test.txt s3://github-action-poc/
