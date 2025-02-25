@@ -1,18 +1,18 @@
-name: Build Docker Images
+# name: Build Docker Images
 
-on:
-  push:
-    paths:
-      - "src/go/producer/**"
+# on:
+#   push:
+#     paths:
+#       - "src/go/producer/**"
 
-jobs:
-  build-docker-producer:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+# jobs:
+#   build-docker-producer:
+#     runs-on: ubuntu-22.04
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v3
 
-      - name: Build producer
-        run: |
-          docker build -t producer:1.0 -f docker/Dockerfile.producer .
-          docker run --rm producer:1.0
+#       - name: Build producer
+#         run: |
+#           docker build -t producer:1.0 -f docker/Dockerfile.producer .
+#           docker run --rm producer:1.0

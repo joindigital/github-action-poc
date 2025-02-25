@@ -1,18 +1,18 @@
-name: Build Docker Images
+# name: Build Docker Images
 
-on:
-  push:
-    paths:
-      - "src/go/collector/**"
+# on:
+#   push:
+#     paths:
+#       - "src/go/collector/**"
 
-jobs:
-  build-docker-collector:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+# jobs:
+#   build-docker-collector:
+#     runs-on: ubuntu-22.04
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v3
 
-      - name: Build collector
-        run: |
-          docker build -t collector:1.0 -f docker/Dockerfile.collector .
-          docker run --rm collector:1.0
+#       - name: Build collector
+#         run: |
+#           docker build -t collector:1.0 -f docker/Dockerfile.collector .
+#           docker run --rm collector:1.0
